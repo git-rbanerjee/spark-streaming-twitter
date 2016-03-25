@@ -1,3 +1,10 @@
 language: java
-sudo: false
-script: mvn package
+before_deploy:
+  - "mvn -DskipTests package"
+  - export FOO=$(ls target/foo-version-*.jar)
+
+deploy:
+  provider: releases
+  api_key:
+    secure: yep
+  file: "${FOO}"
