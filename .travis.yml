@@ -5,16 +5,15 @@ language: java
 install: cd spark-twitter;mvn install -DskipTests=true;cd ..
 
 ## do the tests
-script: ant test-hard && cd spark-twitter && mvn test
+script: cd spark-twitter && mvn test
 
 ## a single JVM should be enough.
 ## Adding openjdk7 is probably a sensible thing, but means I have to 
 ## edit the ant build.xml file which is unfortunate.
 jdk:
-  - openjdk6
-  - openjdk7
+  - oraclejdk8
 
 ## I will need to set something up to catch these. 
 notifications:
   email:
-    - travis@russet.org.uk
+    - rabin.banerjee91@gmail.com
